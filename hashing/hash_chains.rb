@@ -1,3 +1,5 @@
+# Coursera
+#
 class CustomHash
   def initialize(size)
     @data = Array.new(size) { Array.new }

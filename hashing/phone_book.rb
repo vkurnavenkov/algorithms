@@ -1,3 +1,5 @@
+# Coursera
+#
 class CustomHash
   def initialize
     @data = {}
