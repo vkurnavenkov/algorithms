@@ -1,4 +1,4 @@
-# Ford-Fulkerson algorithm
+# Ford-Fulkerson with BFS (Edmonds-Karp) algorithm
 #
 # Input format:
 # n m
@@ -85,8 +85,9 @@ class FlowGraph
 
     queue = [src]
     while !queue.empty?
-      current = queue.pop
+      current = queue.shift
       visited[current] = true
+      break if current == dest
 
       graph[current].each do |edge_idx|
         edge = edges[edge_idx]
@@ -102,10 +103,10 @@ class FlowGraph
 end
 
 def read_from_input
-  n, m = gets.split.map(&:to_i)
+  n, m = STDIN.readline.split.map(&:to_i)
   graph = FlowGraph.new(n)
   m.times do
-    u, v, c = gets.split.map(&:to_i)
+    u, v, c = STDIN.readline.split.map(&:to_i)
     graph.add_edge(u - 1, v - 1, c)
   end
 
